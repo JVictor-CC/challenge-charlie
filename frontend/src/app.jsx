@@ -5,7 +5,7 @@ import MiniWeatherCard from "./components/MiniWeatherCard";
 import { useWeatherContext } from "./context/weatherContext";
 
 const App = () => {
-    const { weather, forecast, location, unit } = useWeatherContext();
+    const { weather, forecast, location, unit, bgImage } = useWeatherContext();
     const days = [
         "amanhã",
         "depois de amanhã",
@@ -13,12 +13,16 @@ const App = () => {
         "daqui a 4 dias",
     ];
 
+    const divStyle = {
+        backgroundImage: `url(${bgImage})`,
+    };
+
     return (
         <>
             <div className="absolute inset-0 w-full h-full">
                 <div
-                    className="bg-cover bg-center w-full h-full
-                    bg-[url('https://www.bing.com/th?id=OHR.TateishiPark_PT-BR0601453659_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp')]"
+                    className="bg-cover bg-center w-full h-full"
+                    style={divStyle}
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-40"></div>
             </div>

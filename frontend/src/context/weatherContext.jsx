@@ -19,11 +19,13 @@ export const WeatherContextProvider = ({ children }) => {
                 .slice(1, 5);
             setForecast(dailyForecast);
         });
+        getBingImage().then((response) => setBgImage(response));
     }, [location]);
 
     useEffect(() => {
-        console.log(weather);
-        console.log(forecast);
+        //console.log(weather);
+        //console.log(forecast);
+        //console.log(bgImage);
     }, [weather, forecast]);
 
     return (
@@ -35,6 +37,7 @@ export const WeatherContextProvider = ({ children }) => {
                 location,
                 unit,
                 setUnit,
+                bgImage,
             }}
         >
             {children}

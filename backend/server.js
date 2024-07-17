@@ -1,4 +1,6 @@
 import Fastify from "fastify";
+import { getBgImage } from "./routes/getBgImage.js";
+import { getWeather, getForecast } from "./routes/getWeatherForecast.js";
 import cors from "@fastify/cors";
 
 const app = Fastify({
