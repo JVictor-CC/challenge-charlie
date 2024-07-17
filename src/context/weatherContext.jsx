@@ -9,6 +9,7 @@ export const WeatherContextProvider = ({ children }) => {
     const [forecast, setForecast] = useState([]);
     const [location, setLocation] = useState("rio de janeiro");
     const [bgImage, setBgImage] = useState("");
+    const [unit, setUnit] = useState("c");
 
     useEffect(() => {
         getWeather(location).then((response) => setWeather(response));
@@ -32,6 +33,8 @@ export const WeatherContextProvider = ({ children }) => {
                 forecast,
                 setLocation,
                 location,
+                unit,
+                setUnit,
             }}
         >
             {children}
