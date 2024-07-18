@@ -14,9 +14,20 @@ export async function getWeather(app) {
             );
 
             const responseWeather = await fetchWeather.json();
-            return responseWeather;
+
+            if (responseWeather?.cod == 200) {
+                return reply.send({ status: "success", data: responseWeather });
+            } else {
+                return reply.send({
+                    status: "error",
+                    message: responseWeather.message,
+                });
+            }
         } catch (error) {
-            console.log(error);
+            reply.status(500).send({
+                status: "error",
+                message: error.message,
+            });
         }
     });
 }
@@ -30,9 +41,23 @@ export async function getForecast(app) {
             );
 
             const responseForecast = await fetchForecast.json();
-            return responseForecast;
+
+            if (responseForecast?.cod == 200) {
+                const dailyForecast = responseForecast?.list
+                    .filter((_, index) => index % 8 === 0)
+                    .slice(1, 5);
+                return reply.send({ status: "success", data: dailyForecast });
+            } else {
+                return reply.send({
+                    status: "error",
+                    message: responseForecast.message,
+                });
+            }
         } catch (error) {
-            console.log(error);
+            reply.status(500).send({
+                status: "error",
+                message: error.message,
+            });
         }
     });
 }
