@@ -15,5 +15,6 @@ export const getBingImage = async () => {
         }
     } catch (error) {
         console.log(error);
+        return beckupImage;
     }
 };

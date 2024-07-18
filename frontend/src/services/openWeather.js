@@ -12,6 +12,10 @@ export const getWeather = async (location) => {
         return responseWeather;
     } catch (error) {
         console.log(error);
+        return {
+            status: "error",
+            message: error.message || "Erro ao obter previsão do tempo",
+        };
     }
 };
 
@@ -29,5 +33,9 @@ export const getForecast = async (location) => {
         return responseForecast;
     } catch (error) {
         console.log(error);
+        return {
+            status: "error",
+            message: error.message || "Erro ao obter previsão do tempo",
+        };
     }
 };

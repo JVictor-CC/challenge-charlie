@@ -33,7 +33,7 @@ const WeatherInfoCard = ({
                 {location}
             </h1>
             <h2 className="text-center">{currentDate}</h2>
-            <hr class="h-px mb-8 mt-2 bg-gray-200 border-0 dark:bg-gray-700" />
+            <hr className="h-px mb-8 mt-2 bg-gray-200 border-0 dark:bg-gray-700" />
             <div className="flex justify-around items-center my-4">
                 <div className="flex text-5xl font-bold">
                     {unit == "c" ? (
@@ -56,7 +56,7 @@ const WeatherInfoCard = ({
             <div className="grid grid-cols-2 gap-2">
                 <div className="bg-gray-800 bg-opacity-70 p-2 rounded flex justify-around items-center">
                     <div>
-                        <p className="font-bold">Wind</p>
+                        <p className="font-bold">Vento</p>
                         <p>{windspeed} m/s</p>
                     </div>
                     <LuWind className="text-2xl" />
@@ -64,7 +64,7 @@ const WeatherInfoCard = ({
                 <div className="bg-gray-800 bg-opacity-70 p-2 rounded flex justify-around items-center">
                     <div>
                         <p className="font-bold flex justify-around items-center">
-                            Humidity
+                            Humidade
                         </p>
                         <p>{humidity}%</p>
                     </div>
@@ -73,7 +73,7 @@ const WeatherInfoCard = ({
                 <div className="bg-gray-800 bg-opacity-70 p-2 rounded flex justify-around items-center">
                     <div>
                         <p className="font-bold flex justify-around items-center">
-                            Pressure
+                            Pressão
                         </p>
                         <p>{pressure} hPa</p>
                     </div>
@@ -82,7 +82,7 @@ const WeatherInfoCard = ({
                 <div className="bg-gray-800 bg-opacity-70 p-2 rounded flex justify-around items-center">
                     <div>
                         <p className="font-bold flex justify-around items-center">
-                            Clouds
+                            Nuvens
                         </p>
                         <p>{clouds}%</p>
                     </div>
