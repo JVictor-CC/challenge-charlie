@@ -1,6 +1,7 @@
 import { useContext, createContext, useEffect, useState } from "react";
 import { getWeather, getForecast } from "../services/openWeather";
 import { getBingImage } from "../services/bingAPI";
+import { getUserLocation } from "../services/location";
 import toast from "react-hot-toast";
 
 const WeatherContext = createContext();
@@ -19,6 +20,11 @@ export const WeatherContextProvider = ({ children }) => {
             "https://www.bing.com/th?id=OHR.TateishiPark_PT-BR0601453659_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp"
         );
         getBingImage().then((response) => setBgImage(response));
+        getUserLocation().then((response) => {
+            if (response?.status !== "error") {
+                setLocation(response?.data);
+            }
+        });
     }, []);
 
     useEffect(() => {

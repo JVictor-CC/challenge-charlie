@@ -3,7 +3,14 @@ import { HiMagnifyingGlass } from "react-icons/hi2";
 import { useWeatherContext } from "../context/weatherContext";
 
 const LocationInput = () => {
-    const { setLocation, location } = useWeatherContext();
+    const { setLocation } = useWeatherContext();
+
+    const handleKeyDown = (event) => {
+        if (event.key === "Enter") {
+            setLocation(event.target.value);
+        }
+    };
+
     return (
         <div className="w-8/12 justify-center items-center text-slate-400 bg-white overflow-hidden shadow-2xl rounded gap-2 px-2 hidden sm:flex">
             <HiMagnifyingGlass className="text-2xl" />
@@ -16,7 +23,7 @@ const LocationInput = () => {
                 id="location"
                 placeholder="Digite a localização desejada..."
                 aria-label="Localizar"
-                value=""
+                onKeyDown={handleKeyDown}
             />
         </div>
     );

@@ -1,6 +1,7 @@
 import Fastify from "fastify";
 import { getBgImage } from "./routes/getBgImage.js";
 import { getWeather, getForecast } from "./routes/getWeatherForecast.js";
+import { getLocation } from "./routes/getLocation.js";
 import cors from "@fastify/cors";
 
 const app = Fastify({
@@ -16,6 +17,7 @@ await app.register(cors, {
 app.register(getBgImage);
 app.register(getWeather);
 app.register(getForecast);
+app.register(getLocation);
 
 // Run the server!
 try {
